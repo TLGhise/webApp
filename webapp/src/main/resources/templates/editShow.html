@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> Add User </title>
+</head>
+
+<body>
+
+<div>
+    <h2> Add a new user </h2>
+
+    <form action="#" th:action="@{/edit/{id}}"
+          th:object="${showEditDto}"  method="post">
+
+        <tr>
+            <td >Product ID:</td>
+            <td>
+                <input  type="hidden" th:field="*{id}" />
+            </td>
+        </tr>
+        <tr>
+            <td> Data</td>
+            <td>
+                <input type="number" th:field="*{date}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Hour:</td>
+            <td><input type="number" th:field="*{hour}"/></td>
+        </tr>
+
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{show_name}"/></td>
+        </tr>
+
+
+        <tr>
+            <td>description</td>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+
+
+    </form>
+</div>
+
+</body>
+</html>

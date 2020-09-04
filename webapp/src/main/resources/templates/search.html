@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> List all of the users </title>
+</head>
+
+<body>
+
+<div align="center">
+    <h2> RESULT </h2>
+
+    <form method="get" action= "/search">
+        <input type="text" name="keyword"/>
+        <input type="submit" name="Search"/>
+
+    </form>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Name</th>
+            <th>Hour</th>
+            <th>Date</th>
+        </tr>
+
+
+        <tr th:each="show : ${result} ">
+            <td th:text="${show.show_name}">name</td>
+            <td th:text="${show.hour}">hour</td>
+            <td th:text="${show.date}">date</td>
+
+        </tr>
+
+
+    </table>
+
+
+</div>
+
+</body>
+</html>

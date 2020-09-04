@@ -1,0 +1,99 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> List of shows </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+
+<div align="center">
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Name</th>
+            <th>Hour</th>
+            <th>Date</th>
+            <th>About show</th>
+        </tr>
+
+        <tr th:each="show : ${detailShow} ">
+            <td th:text="${show.show_name}">name</td>
+            <td th:text="${show.hour}">hour</td>
+            <td th:text="${show.date}">date</td>
+            <td th:text="${show.description}">description</td>
+
+
+        </tr>
+
+        <tr>
+            <td colspan="4" align="center">Reiting</td>
+
+        </tr>
+        <tr>
+            <td colspan="4" align="left">name</td>
+
+        </tr>
+        <tr>
+            <td colspan="4" align="left">description</td>
+
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>Star Rating</h2>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+
+</div>
+
+
+<div>
+    <form action="#" th:action="@{/detail/{id}}"
+          method="post">
+        <input type="hidden" th:field="*{showReview.id}" value="*{id}">
+        <tr>
+            <td>User Name:</td>
+            <td><input type="text" th:field="*{showReview.userName}"/></td>
+        </tr>
+
+        <tr>
+            <td>Review</td>
+            <td><input type="text" th:field="*{showReview.reviewDetails}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="reset" value="Rest" name="reset"/>
+            </td>
+        </tr>
+
+    </form>
+
+
+    <!--    <table>-->
+    <!--        <tr th:each="review : ${showViewDto.showReviewSet}">-->
+    <!--            <td th:text="${review.userName}">Username</td>-->
+    <!--            <td th:text="${review.reviewDetails}">Content</td>-->
+    <!--        </tr>-->
+    <!--    </table>-->
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

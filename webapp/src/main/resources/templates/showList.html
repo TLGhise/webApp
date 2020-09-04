@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> List of shows </title>
+</head>
+<body>
+<div align="center">
+    <h2> List Shows </h2>
+    <form method="get" action="/search">
+        <input type="text" name="keyword"/>
+        <input type="submit" name="Search"/>
+    </form>
+    <a href="addShow">Add a new show</a>
+<!--    <a href="detailShow"> simpleShowDetailLink </a>-->
+</div>
+
+<div align="center">
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Name</th>
+            <th>Hour</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+        <tr th:each="show : ${showList} ">
+            <!--            <td th:text="${show.show_name}">name</td>-->
+            <td>
+                <a th:href="@{/detail/{id}(id=${show.id})}">[[${show.show_name}]]</a>
+            </td>
+            <td th:text="${show.hour}">hour</td>
+            <td th:text="${show.date}">date</td>
+
+            <td>
+                                <a th:href="@{/edit/{id}(id=${show.id})}">Edit</a>
+                <!--                <form th:action="@{/delete/{id}(id=${show.id})}">-->
+                <!--                    <button type="submit" onClick="return confirm('Are you sure?')">Delete</button>-->
+                <!--                </form>-->
+                <a th:href="@{/delete/{id}(id=${show.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div align="center">
+    Total Items: [[${totalItems}]] - Page [[${currentPage}]] of [[${totalPages}]] -
+
+    <!--    <span th:each="i : ${#numbers.sequence(1,totalPages)}">-->
+    <!--        <span>[[${i}]]</span>-->
+    <!--        <a th:href="@{/page/{i}(i=${i})}">[[${i}]]</a>-->
+
+    <!--    </span>-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<body>
+<div>
+                <img class="picture" src="../../java/com/theatre/webapp/pictures/1.jpg" width="200" height="300" >
+                <img class="picture" src="../../java/com/theatre/webapp/pictures/2.jpg" width="200" height="300">
+                <img class="picture" src="../../java/com/theatre/webapp/pictures/3.jpg" width="200" height="300">
+
+</div>
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("picture");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 3000); // Change image every 3 seconds
+    }
+</script>
+
+</body>
+</html>
